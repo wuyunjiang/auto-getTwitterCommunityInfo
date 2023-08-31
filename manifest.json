@@ -1,0 +1,30 @@
+{
+  "name": "AutoGetTwitterCommunityInfo",
+  "description": "自动记录twitter社区信息，Author：白丁",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": ["storage", "debugger", "scripting", "tabs", "downloads"],
+  "icons": {
+    "16": "./icon/icon.png",
+    "32": "./icon/icon.png",
+    "48": "./icon/icon.png",
+    "128": "./icon/icon.png"
+  },
+  "action": {
+    "default_popup": "./popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://twitter.com/i/communities/*"],
+      "js": [
+        "./helper/front_index.js",
+        "./network/front_index.js",
+        "./content/content.js"
+      ]
+    }
+  ]
+}
